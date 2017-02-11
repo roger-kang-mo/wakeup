@@ -1,3 +1,33 @@
-<h1>
-  {{title}}
-</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <h1 class="col-md-4">
+      {{currentDate | amCalendar}}
+    </h1>
+  </div>
+
+<br>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <button class="col-md-4 btn btn-primary"
+            *ngIf="!availableTimes.length"
+            (click)="generateTimes()">Sleep Now</button>
+  </div>
+
+  <div class="row" *ngIf="availableTimes.length">
+    <div class="col-md-4"></div>
+    <ul class="times col-md-4">
+      <li *ngFor="let time of availableTimes"
+          (click)="setTime(time)"
+          class="text-center">
+        <h3 class="rise-time-option">{{time.toString() | amDateFormat:'LT'}}</h3>
+      </li>
+    </ul>
+  </div>
+
+  <div class="row rise-time" *ngIf="riseTime">
+    <div class="col-md-4"></div>
+    <h1>Rising at {{riseTime | amDateFormat: 'LT'}}</h1>
+  </div>
+</div>

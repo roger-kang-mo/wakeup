@@ -4,11 +4,22 @@
   <meta charset="utf-8">
   <title>Wakeup</title>
   <base href="/">
-
+  <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAOJuPqmcLa3OnW2ST7RZsBdqHXoKw4N3I",
+      authDomain: "wakeup-aa73e.firebaseapp.com",
+      databaseURL: "https://wakeup-aa73e.firebaseio.com",
+      storageBucket: "wakeup-aa73e.appspot.com",
+      messagingSenderId: "1032974831549"
+    };
+    firebase.initializeApp(config);
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-<body>
+<body style="background-color: #001f3f;">
   <app-root>Loading...</app-root>
 </body>
 </html>
