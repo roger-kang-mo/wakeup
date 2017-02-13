@@ -48,6 +48,6 @@ export class AppComponent {
   }
 
   turnOnLightsSlowly(): void {
-    this.lightService.on({transitiontime: 100});
+    this.lightService.on({transitiontime: this.SLOW_LIGHTS_ON_DURATION});
   }
 }
