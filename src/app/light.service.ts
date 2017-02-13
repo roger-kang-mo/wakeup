@@ -13,7 +13,7 @@ export class LightService {
   }
 
   public off(): void {
-    this.makeRequest({on: true, bri: 1, transitiontime: 100});
+    this.makeRequest({on: false});
   }
 
   public on(params): void {
@@ -24,6 +24,9 @@ export class LightService {
     }
     if(params.transitiontime) options.transitiontime = params.transitiontime;
     if(params.bri) options.bri = params.bri;
+
+    // transitiontime only works when changing brightness, make sure lights are on
+    this.makeRequest({on: true, bri: 1, transitiontime: 0});
 
     console.log("Turning lights on to " + options.bri + " brightness over " + (options.transitiontime/10) + " seconds.");
     this.makeRequest(options);

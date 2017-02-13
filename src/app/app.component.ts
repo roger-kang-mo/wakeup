@@ -30,12 +30,12 @@ export class AppComponent {
 
       this.riseTime = time;
       let currentTime = new Date();
-      let timerTime = (time.getTime() - currentTime.getTime())/1000;
+      let timerTime = (time.getTime() - currentTime.getTime());
 
-      console.log("I'll turn the lights on in "+ timerTime + " seconds...");
+      console.log("I'll turn the lights on in "+ (timerTime/1000) + " seconds...");
       this.timer = setTimeout(() => {
         this.turnOnLightsSlowly();
-      }, 5000)
+      }, timerTime)
     }
   }
 
