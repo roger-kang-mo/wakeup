@@ -7,6 +7,7 @@ import { LightService } from './light.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   currentDate: Date;
   sleepNow: boolean;
@@ -22,6 +23,11 @@ export class AppComponent {
 
   generateTimes(offset): void {
     this.availableTimes = this.timeService.getTimes(offset);
+  }
+
+  cancelTimer(): void {
+    clearTimeout(this.timer);
+    this.riseTime = null;
   }
 
   setTime(time): void {

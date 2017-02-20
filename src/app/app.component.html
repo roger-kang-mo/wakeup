@@ -8,13 +8,14 @@
   </div>
 
   <div class="section">
+    <hr class="hr-text" data-content="SLEEPING IN">
     <div class="row">
       <div class="col-md-12 text-center">
         <button class="time-modifier btn btn-primary" (click)="generateTimes(0)">Now</button>
-        <button class="time-modifier btn btn-primary" (click)="generateTimes(10)">+10</button>
-        <button class="time-modifier btn btn-primary" (click)="generateTimes(15)">+15</button>
-        <button class="time-modifier btn btn-primary" (click)="generateTimes(20)">+20</button>
-        <button class="time-modifier btn btn-primary" (click)="generateTimes(30)">+30</button>
+        <button class="time-modifier btn btn-primary" (click)="generateTimes(10)">10</button>
+        <button class="time-modifier btn btn-primary" (click)="generateTimes(15)">15</button>
+        <button class="time-modifier btn btn-primary" (click)="generateTimes(20)">20</button>
+        <button class="time-modifier btn btn-primary" (click)="generateTimes(30)">30</button>
       </div>
     </div>
   </div>
@@ -31,9 +32,13 @@
     </div>
   </div>
 
-  <div>
-    <div class="row rise-time" *ngIf="riseTime">
-      <h1 class="col-md-12 text-center">Rising at {{riseTime | amDateFormat: 'LT'}}</h1>
+  <div class="section" *ngIf="riseTime">
+    <hr class="hr-text" data-content="RISING AT">
+    <div class="row rise-time">
+      <h1 class="col-md-12 text-center">{{riseTime | amDateFormat: 'LT'}}</h1>
+      <div class="col-md-12 text-center">
+        <a href="" (click)="cancelTimer()">cancel</a>
+      </div>
     </div>
   </div>
 </div>

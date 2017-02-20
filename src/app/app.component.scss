@@ -1,8 +1,46 @@
 .container {
   color: #7FDBFF;
 
+  a {
+    color: #7FDBFF;
+
+    :visited {
+      color: #7FDBFF;
+    }
+  }
+
   .section {
     margin: 20px 0;
+  }
+
+  .hr-text {
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    text-align: center;
+    height: 1.5em;
+    opacity: .5;
+
+    &:before {
+      content: '';
+      background: linear-gradient(to right, transparent, #7FDBFF, transparent);
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 1px;
+    }
+    &:after {
+      content: attr(data-content);
+      position: relative;
+      display: inline-block;
+
+      padding: 0 .5em;
+      line-height: 1.5em;
+      color: #7FDBFF;
+      background-color: #001f3f;
+    }
   }
 
   ul {
@@ -19,7 +57,14 @@
 
   .time-modifier {
     margin: 5px;
+    background-color: #001f3f;
+    border: 1px solid #7FDBFF;
+    color: #7FDBFF;
     animation: fadein 2s;
+
+    &:hover {
+      background-color: #006E90;
+    }
   }
 
   .rise-time-row {
