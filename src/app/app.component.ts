@@ -20,8 +20,8 @@ export class AppComponent {
     this.availableTimes = [];
   }
 
-  generateTimes(): void {
-    this.availableTimes = this.timeService.getTimes();
+  generateTimes(offset): void {
+    this.availableTimes = this.timeService.getTimes(offset);
   }
 
   setTime(time): void {
@@ -35,7 +35,7 @@ export class AppComponent {
       console.log("I'll turn the lights on in "+ timerTime + " seconds...");
       this.timer = setTimeout(() => {
         this.turnOnLightsSlowly();
-      }, 5000)
+      }, timerTime);
     }
   }
 

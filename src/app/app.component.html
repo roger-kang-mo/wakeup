@@ -1,33 +1,39 @@
-
 <div class="container">
-  <div class="row">
-    <div class="col-md-4"></div>
-    <h1 class="col-md-4">
-      {{currentDate | amCalendar}}
-    </h1>
+  <div class="section">
+    <div class="row">
+      <h1 class="col-md-12 text-center">
+        {{currentDate | amDateFormat: 'LT'}}
+      </h1>
+    </div>
   </div>
 
-<br>
-  <div class="row">
-    <div class="col-md-4"></div>
-    <button class="col-md-4 btn btn-primary"
-            *ngIf="!availableTimes.length"
-            (click)="generateTimes()">Sleep Now</button>
+  <div class="section">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <button class="time-modifier btn btn-primary" (click)="generateTimes(0)">Now</button>
+        <button class="time-modifier btn btn-primary" (click)="generateTimes(10)">+10</button>
+        <button class="time-modifier btn btn-primary" (click)="generateTimes(15)">+15</button>
+        <button class="time-modifier btn btn-primary" (click)="generateTimes(20)">+20</button>
+        <button class="time-modifier btn btn-primary" (click)="generateTimes(30)">+30</button>
+      </div>
+    </div>
   </div>
 
-  <div class="row" *ngIf="availableTimes.length">
-    <div class="col-md-4"></div>
-    <ul class="times col-md-4">
-      <li *ngFor="let time of availableTimes"
-          (click)="setTime(time)"
-          class="text-center">
-        <h3 class="rise-time-option">{{time.toString() | amDateFormat:'LT'}}</h3>
-      </li>
-    </ul>
+  <div class="section">
+    <div class="row" *ngIf="availableTimes.length">
+      <ul class="times col-md-12 text-center">
+        <li *ngFor="let time of availableTimes"
+            (click)="setTime(time)"
+            class="rise-time-row">
+          <h3 class="rise-time-option">{{time.toString() | amDateFormat:'LT'}}</h3>
+        </li>
+      </ul>
+    </div>
   </div>
 
-  <div class="row rise-time" *ngIf="riseTime">
-    <div class="col-md-4"></div>
-    <h1>Rising at {{riseTime | amDateFormat: 'LT'}}</h1>
+  <div>
+    <div class="row rise-time" *ngIf="riseTime">
+      <h1 class="col-md-12 text-center">Rising at {{riseTime | amDateFormat: 'LT'}}</h1>
+    </div>
   </div>
 </div>
