@@ -25,7 +25,8 @@ export class AppComponent {
     this.availableTimes = this.timeService.getTimes(offset);
   }
 
-  cancelTimer(): void {
+  cancelTimer(event): void {
+    event.preventDefault();
     clearTimeout(this.timer);
     this.riseTime = null;
   }
