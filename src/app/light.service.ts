@@ -6,7 +6,7 @@ import { environment } from '../environments/environment'
 export class LightService {
   lightUrl: String;
   transitiontime = 100;
-  defaultOnBrightness = 150;
+  defaultOnBrightness = 200;
 
   constructor(private http:Http) {
     this.lightUrl = `http://${environment.bridge_ip}/api/${environment.dash_username}/groups/${environment.room_group_id}/action`;

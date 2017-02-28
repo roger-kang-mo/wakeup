@@ -12,7 +12,7 @@ export class TimeService {
     let convertedOffset = offset * 1000 * 60;
 
     let dates = [];
-    let base = (new Date()).getTime() + 840000 + convertedOffset;
+    let base = (new Date()).getTime() - 60000 + convertedOffset;
     for (let i of [1,2,3,4,5,6]) {
       let pizza = this.cycleInterval * i;
       let sampleDate = new Date(base + pizza);
